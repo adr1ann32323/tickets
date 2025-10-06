@@ -6,10 +6,10 @@ import domain.User;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class jdbcUseDao implements userDao {
+public class jdbcUserDao implements userDao {
     @Override
     public User create(User user) throws SQLException {
-        String sql = "INSERT INTO usuario (name, email, rol) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO user (name, email, rol) VALUES (?, ?, ?)";
         try (Connection c = DbConfig.getConnection();
              PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, user.getName());
